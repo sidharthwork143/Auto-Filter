@@ -568,27 +568,3 @@ async def set_req_fsub(bot, message):
     db.update_bot_sttgs('REQUEST_FORCE_SUB_CHANNELS', id)
     await message.reply(f'added request force subscribe channel: {chat.title}')
 
-
-@Client.on_message(filters.command('off_auto_filter') & filters.user(ADMINS))
-async def off_auto_filter(bot, message):
-    db.update_bot_sttgs('AUTO_FILTER', False)
-    await message.reply('Successfully turned off auto filter for all groups')
-
-
-@Client.on_message(filters.command('on_auto_filter') & filters.user(ADMINS))
-async def on_auto_filter(bot, message):
-    db.update_bot_sttgs('AUTO_FILTER', True)
-    await message.reply('Successfully turned on auto filter for all groups')
-
-
-
-@Client.on_message(filters.command('off_pm_search') & filters.user(ADMINS))
-async def off_pm_search(bot, message):
-    db.update_bot_sttgs('PM_SEARCH', False)
-    await message.reply('Successfully turned off pm search for all users')
-
-
-@Client.on_message(filters.command('on_pm_search') & filters.user(ADMINS))
-async def on_pm_search(bot, message):
-    db.update_bot_sttgs('PM_SEARCH', True)
-    await message.reply('Successfully turned on pm search for all users')
