@@ -44,10 +44,6 @@ async def group_search(client, message):
     chat_id = message.chat.id
     user_id = message.from_user.id if message and message.from_user else 0
     stg = db.get_bot_sttgs()
-    if stg.get('AUTO_FILTER'):
-        if not user_id:
-            await message.reply("I'm not working for anonymous admin!")
-            return
         if message.chat.id == SUPPORT_GROUP:
             files, offset, total = await get_search_results(message.text)
             if files:
