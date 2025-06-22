@@ -35,74 +35,75 @@ async def pm_search(client, message):
             ]]
         reply_markup=InlineKeyboardMarkup(btn)
         if int(total) != 0:
-            await message.reply_text(f'<b><i>🤗 ᴛᴏᴛᴀʟ <code>{total}</code> ʀᴇꜱᴜʟᴛꜱ ꜰᴏᴜɴᴅ ɪɴ ᴛʜɪꜱ ɢʀᴏᴜᴘ 👇</i></b>\n\nor buy premium subscription', reply_markup=reply_markup)
-
-            
+            await message.reply_text(f'<b><i>🤗 ᴛᴏᴛᴀʟ <code>{total}</code> ʀᴇꜱᴜʟᴛꜱ ꜰᴏᴜɴᴅ ɪɴ ᴛʜɪꜱ ɢʀᴏᴜᴘ 👇</i></b>\n\nor buy premium subscription', reply_markup=reply_markup)           
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def group_search(client, message):
     chat_id = message.chat.id
     user_id = message.from_user.id if message and message.from_user else 0
     stg = db.get_bot_sttgs()
-        if message.chat.id == SUPPORT_GROUP:
-            files, offset, total = await get_search_results(message.text)
-            if files:
-                btn = [[
-                    InlineKeyboardButton("Here", url=FILMS_LINK)
-                ]]
-                await message.reply_text(f'Total {total} results found in this group', reply_markup=InlineKeyboardMarkup(btn))
-            return
-            
-        if message.text.startswith("/"):
-            return
-            
-        elif '@admin' in message.text.lower() or '@admins' in message.text.lower():
-            if await is_check_admin(client, message.chat.id, message.from_user.id):
-                return
-            admins = []
-            async for member in client.get_chat_members(chat_id=message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
-                if not member.user.is_bot:
-                    admins.append(member.user.id)
-                    if member.status == enums.ChatMemberStatus.OWNER:
-                        if message.reply_to_message:
-                            try:
-                                sent_msg = await message.reply_to_message.forward(member.user.id)
-                                await sent_msg.reply_text(f"#Attention\n★ User: {message.from_user.mention}\n★ Group: {message.chat.title}\n\n★ <a href={message.reply_to_message.link}>Go to message</a>", disable_web_page_preview=True)
-                            except:
-                                pass
-                        else:
-                            try:
-                                sent_msg = await message.forward(member.user.id)
-                                await sent_msg.reply_text(f"#Attention\n★ User: {message.from_user.mention}\n★ Group: {message.chat.title}\n\n★ <a href={message.link}>Go to message</a>", disable_web_page_preview=True)
-                            except:
-                                pass
-            hidden_mentions = (f'[\u2064](tg://user?id={user_id})' for user_id in admins)
-            await message.reply_text('Report sent!' + ''.join(hidden_mentions))
-            return
 
-        elif re.findall(r'https?://\S+|www\.\S+|t\.me/\S+|@\w+', message.text):
-            if await is_check_admin(client, message.chat.id, message.from_user.id):
-                return
-            await message.delete()
-            return await message.reply('Links not allowed here!')
-        
-        elif '#request' in message.text.lower():
-            if message.from_user.id in ADMINS:
-                return
-            await client.send_message(LOG_CHANNEL, f"#Request\n★ User: {message.from_user.mention}\n★ Group: {message.chat.title}\n\n★ Message: {re.sub(r'#request', '', message.text.lower())}")
-            await message.reply_text("Request sent!")
-            return  
-        else:
-            s = await message.reply(f"<b><i>⚠️ `{message.text}` searching...</i></b>")
-            await auto_filter(client, message, s)
+    if message.chat.id == SUPPORT_GROUP:
+        files, offset, total = await get_search_results(message.text)
+        if files:
+            btn = [[
+                InlineKeyboardButton("Here", url=FILMS_LINK)
+            ]]
+            await message.reply_text(f'Total {total} results found in this group', reply_markup=InlineKeyboardMarkup(btn))
+        return
+
+    if message.text.startswith("/"):
+        return
+
+    elif '@admin' in message.text.lower() or '@admins' in message.text.lower():
+        if await is_check_admin(client, message.chat.id, message.from_user.id):
+            return
+        admins = []
+        async for member in client.get_chat_members(chat_id=message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
+            if not member.user.is_bot:
+                admins.append(member.user.id)
+                if member.status == enums.ChatMemberStatus.OWNER:
+                    if message.reply_to_message:
+                        try:
+                            sent_msg = await message.reply_to_message.forward(member.user.id)
+                            await sent_msg.reply_text(
+                                f"#Attention\n★ User: {message.from_user.mention}\n★ Group: {message.chat.title}\n\n★ <a href={message.reply_to_message.link}>Go to message</a>",
+                                disable_web_page_preview=True
+                            )
+                        except:
+                            pass
+                    else:
+                        try:
+                            sent_msg = await message.forward(member.user.id)
+                            await sent_msg.reply_text(
+                                f"#Attention\n★ User: {message.from_user.mention}\n★ Group: {message.chat.title}\n\n★ <a href={message.link}>Go to message</a>",
+                                disable_web_page_preview=True
+                            )
+                        except:
+                            pass
+        hidden_mentions = (f'[\u2064](tg://user?id={user_id})' for user_id in admins)
+        await message.reply_text('Report sent!' + ''.join(hidden_mentions))
+        return
+
+    elif re.findall(r'https?://\S+|www\.\S+|t\.me/\S+|@\w+', message.text):
+        if await is_check_admin(client, message.chat.id, message.from_user.id):
+            return
+        await message.delete()
+        return await message.reply('Links not allowed here!')
+
+    elif '#request' in message.text.lower():
+        if message.from_user.id in ADMINS:
+            return
+        await client.send_message(
+            LOG_CHANNEL,
+            f"#Request\n★ User: {message.from_user.mention}\n★ Group: {message.chat.title}\n\n★ Message: {re.sub(r'#request', '', message.text.lower())}"
+        )
+        await message.reply_text("Request sent!")
+        return
+
     else:
-        k = await message.reply_text('Auto Filter Off! ❌')
-        await asyncio.sleep(5)
-        await k.delete()
-        try:
-            await message.delete()
-        except:
-            pass
+        s = await message.reply(f"<b><i>⚠️ `{message.text}` searching...</i></b>")
+        await auto_filter(client, message, s)
 
 @Client.on_callback_query(filters.regex(r"^next"))
 async def next_page(bot, query):
