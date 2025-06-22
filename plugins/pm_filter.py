@@ -330,17 +330,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton("+ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ +", url=f'http://t.me/{temp.U_NAME}?startgroup=start')
-        ],[
-            InlineKeyboardButton('ℹ️ ᴜᴘᴅᴀᴛᴇs', url=UPDATES_LINK),
-            InlineKeyboardButton('🧑‍💻 ꜱᴜᴘᴘᴏʀᴛ', url=SUPPORT_LINK)
-        ],[
-            InlineKeyboardButton('👨‍🚒 ʜᴇʟᴘ', callback_data='help'),
-            InlineKeyboardButton('🔎 ɪɴʟɪɴᴇ', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('📚 ᴀʙᴏᴜᴛ', callback_data='about')
-        ],[
-            InlineKeyboardButton('🤑 Buy Premium', url=f"https://t.me/{temp.U_NAME}?start=premium")
-        ]]
+                        InlineKeyboardButton('⛩️ Bot Update Channel', url=f'https://telegram.me/filmy_men')
+                    ],[
+                        InlineKeyboardButton('🌿 Premium', callback_data='plans'),
+                        InlineKeyboardButton('🎏 About Me', callback_data='about')                       
+                    ],[
+                        InlineKeyboardButton('📌 Refer', callback_data='reffer'),
+                        InlineKeyboardButton('⚠️ Disclaimer ', callback_data='disclaimer')
+                        ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.edit_message_media(
             InputMediaPhoto(random.choice(PICS), caption=script.START_TXT.format(query.from_user.mention, get_wish())),
