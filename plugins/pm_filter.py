@@ -405,6 +405,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup
         )
 
+    elif query.data == "disclaimer":
+            buttons = [[
+                    InlineKeyboardButton("⇋ ʙᴀᴄᴋ ⇋", callback_data="start")
+                  ]]
+            reply_markup = InlineKeyboardMarkup(btn)
+            await query.message.edit_text(
+                text=(script.DISCLAIMER_TXT),
+                reply_markup=reply_markup,
+                parse_mode=enums.ParseMode.HTML 
+            )
+ 
     elif query.data == "user_command":
         buttons = [[
             InlineKeyboardButton('« ʙᴀᴄᴋ', callback_data='help')
