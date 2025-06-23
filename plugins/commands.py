@@ -53,13 +53,13 @@ async def start(client, message):
 
 
     if (len(message.command) != 2) or (len(message.command) == 2 and message.command[1] == 'start'):
-        buttons = [[
+        buttons =[[
                         InlineKeyboardButton('⛩️ Bot Update Channel', url=f'https://telegram.me/filmy_men')
                     ],[
-                        InlineKeyboardButton('🌿 Premium', callback_data='plans'),
+                        InlineKeyboardButton('🌿 Premium', callback_data='plan'),
                         InlineKeyboardButton('🎏 About Me', callback_data='about')                       
                     ],[
-                        InlineKeyboardButton('📌 Refer', callback_data='reffer'),
+                        InlineKeyboardButton('🆘 Support', callback_data='support'),
                         InlineKeyboardButton('⚠️ Disclaimer ', callback_data='disclaimer')
                         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
