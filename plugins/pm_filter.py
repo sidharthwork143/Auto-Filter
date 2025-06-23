@@ -404,6 +404,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InputMediaPhoto(random.choice(PICS), caption=script.HELP_TXT.format(query.from_user.mention)),
             reply_markup=reply_markup
         )
+    
+        
+    elif query.data == "support":
+        buttons = [[
+            InlineKeyboardButton('Contact Admin 🧑‍✈️', url='https://telegram.me/iam_Sandman'),
+  #          InlineKeyboardButton('Admin Command', callback_data='admin_command')
+        ],[
+            InlineKeyboardButton('« ʙᴀᴄᴋ', callback_data='start')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.edit_message_media(
+            InputMediaPhoto(random.choice(PICS), caption=script.HELP_TXT.format(query.from_user.mention)),
+            reply_markup=reply_markup
+        )
 
     elif query.data == "disclaimer":
         buttons = [[InlineKeyboardButton('« ʙᴀᴄᴋ', callback_data='start')]]
