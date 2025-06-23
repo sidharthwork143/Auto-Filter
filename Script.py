@@ -135,9 +135,9 @@ Support: {}"""
     
     SOURCE_TXT = """<b>ʙᴏᴛ ɢɪᴛʜᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ -
 
-- ᴛʜɪꜱ ʙᴏᴛ ɪꜱ ᴀɴ ᴏᴘᴇɴ ꜱᴏᴜʀᴄᴇ ᴘʀᴏᴊᴇᴄᴛ.
+- its not open source project but.
 
-- ꜱᴏᴜʀᴄᴇ - <a href=https://spankbang.party>ʜᴇʀᴇ</a>
+- Source - <a href=https://spankbang.party>click here</a>
 
-- ᴅᴇᴠʟᴏᴘᴇʀ - @GojoXSandman_Bot"""
+- Developer - @GojoXSandman_Bot"""
 
