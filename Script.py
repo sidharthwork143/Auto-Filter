@@ -17,11 +17,11 @@ bro. i can provide kind of content to my members without any cost. just send me 
 🌿 ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href=https://t.me/GojoXSandman_Bot>Satoru aka Sandman</a>"""
 
     SUPPORT_TXT = """
-<b>If your facing any problem with our bot and need help, So please contact for our Support.
+<b>If your facing any problem with our bot and need help, So please contact for our Support
 
  🕛 Time : 8'AM To !0'PM
 
-  Only For Urgent Problems, message us<b>"""
+  Only For Urgent Problems, message us <b>"""
 
     MY_OWNER_TXT = """★ Name: Sandman Aka Sandman
 ★ Username: @GojoXSandman_Bot
