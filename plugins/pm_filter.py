@@ -406,13 +406,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
 
     elif query.data == "disclaimer":
-            buttons = [[
-                    InlineKeyboardButton("⇋ ʙᴀᴄᴋ ⇋", callback_data="start")
-                  ]]
-            reply_markup = InlineKeyboardMarkup(buttons)
-            await query.message.edit_text(
-                text=(script.DISCLAIMER_TXT),
-                reply_markup=reply_markup,
+        buttons = [[InlineKeyboardButton('« ʙᴀᴄᴋ', callback_data='start')]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.edit_message_media(
+            InputMediaPhoto(random.choice(PICS), caption=script.DISCLAIMER_TXT),
+            reply_markup=reply_markup,
                 parse_mode=enums.ParseMode.HTML 
             )
  
@@ -422,7 +420,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.edit_message_media(
-            InputMediaPhoto(random.choice(PICS), caption=script.USER_COMMAND_TXT),
+            InputMediaPhoto(random.choice(PICS), caption=script.DISCLAIMER_TXT),
             reply_markup=reply_markup
         )
         
