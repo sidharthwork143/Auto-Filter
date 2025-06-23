@@ -332,7 +332,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
                         InlineKeyboardButton('⛩️ Bot Update Channel', url=f'https://telegram.me/filmy_men')
                     ],[
-                        InlineKeyboardButton('🌿 Premium', callback_data='plans'),
+                        InlineKeyboardButton('🌿 Premium', callback_data='plan'),
                         InlineKeyboardButton('🎏 About Me', callback_data='about')                       
                     ],[
                         InlineKeyboardButton('🆘 Support', callback_data='support'),
@@ -346,10 +346,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "about":
         buttons = [[
-            InlineKeyboardButton('📊 sᴛᴀᴛᴜs 📊', callback_data='stats'),
-            InlineKeyboardButton('🤖 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 🤖', callback_data='source')
+            InlineKeyboardButton('📊 Status ', callback_data='stats'),
+            InlineKeyboardButton('🤖 Source Code ', callback_data='source')
         ],[
-            InlineKeyboardButton('🧑‍💻 ʙᴏᴛ ᴏᴡɴᴇʀ 🧑‍💻', callback_data='owner')
+            InlineKeyboardButton('🧑‍💻 Owner ', callback_data='owner')
         ],[
             InlineKeyboardButton('« ʙᴀᴄᴋ', callback_data='start')
         ]]
