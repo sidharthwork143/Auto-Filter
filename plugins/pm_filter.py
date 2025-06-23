@@ -335,7 +335,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         InlineKeyboardButton('🌿 Premium', callback_data='plans'),
                         InlineKeyboardButton('🎏 About Me', callback_data='about')                       
                     ],[
-                        InlineKeyboardButton('📌 Refer', callback_data='reffer'),
+                        InlineKeyboardButton('🆘 Support', callback_data='support'),
                         InlineKeyboardButton('⚠️ Disclaimer ', callback_data='disclaimer')
                         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -415,7 +415,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.edit_message_media(
-            InputMediaPhoto(random.choice(PICS), caption=script.HELP_TXT.format(query.from_user.mention)),
+            InputMediaPhoto(random.choice(PICS), caption=script.SUPPORT_TXT.format(query.from_user.mention)),
             reply_markup=reply_markup
         )
 
