@@ -410,9 +410,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.edit_message_media(
             InputMediaPhoto(random.choice(PICS), caption=script.DISCLAIMER_TXT),
-            reply_markup=reply_markup,
-                parse_mode=enums.ParseMode.HTML 
-            )
+            reply_markup=reply_markup
+                
+        )    
  
     elif query.data == "user_command":
         buttons = [[
