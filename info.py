@@ -126,7 +126,7 @@ if len(BIN_CHANNEL) == 0:
     exit()
 else:
     BIN_CHANNEL = int(BIN_CHANNEL)
-URL = environ.get("URL", "auto-filter-o68qn.kinsta.app")
+URL = environ.get("URL", "https://auto-filter-o68qn.kinsta.app")
 if len(URL) == 0:
     logger.error('URL is missing, exiting now')
     exit()
