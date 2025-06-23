@@ -908,9 +908,9 @@ async def auto_filter(client, msg, s, spoll=False):
             **locals()
         )
     else:
-        cap = f"<b>Result For : {message.from_user.mention},{search}</b>"
+        cap = f"<b>Result For : {message.from_user.mention}</b>"
     CAP[key] = cap
-    del_msg = f"\n\n<b>⚠️ This message will be gone after <code>{get_readable_time(DELETE_TIME)}</code></b>" if settings["auto_delete"] else ''
+    del_msg = f"\n\n<b>⚠️ This Message Will Be Gone After <code>{get_readable_time(DELETE_TIME)}</code></b>" if settings["auto_delete"] else ''
     if imdb and imdb.get('poster'):
         await s.delete()
         try:
