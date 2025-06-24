@@ -21,7 +21,7 @@ bro. i can provide kind of content to my members without any cost. just send me 
 
  🕛 Time : 8'AM To !0'PM
 
-  Only For Urgent Problems, message us <b>"""
+  Only For Urgent Problems, message us<b>"""
 
     MY_OWNER_TXT = """★ Name: Sandman Aka Sandman
 ★ Username: @GojoXSandman_Bot
@@ -70,9 +70,9 @@ I can't find the <b>{}</b> in my database! 🥲
 🗣 Requested by: {message.from_user.mention}
 ©️ Powered by: <b>{message.chat.title}</b>"""
 
-    FILE_CAPTION = """<i>{file_name}</i>
+    FILE_CAPTION = """<b><a href="https://t.me/FILMY_MEN">{file_name}</a>
 
-🚫 ᴘʟᴇᴀsᴇ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ᴄʟᴏsᴇ ʙᴜᴛᴛᴏɴ ɪꜰ ʏᴏᴜ ʜᴀᴠᴇ sᴇᴇɴ ᴛʜᴇ ᴍᴏᴠɪᴇ 🚫"""
+🪐 Powered By : <a href="https://t.me/FILMY_MEN">Filmy Men</a></b>"""
 
     WELCOME_TEXT = """👋 Hello {mention}, Welcome to {title} group! 💞"""
 
