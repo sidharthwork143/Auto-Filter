@@ -30,8 +30,8 @@ async def pm_search(client, message):
         files, n_offset, total = await get_search_results(message.text)
         btn = [[
             InlineKeyboardButton("🗂 ᴄʟɪᴄᴋ ʜᴇʀᴇ 🗂", url=FILMS_LINK)
-        ],[
-            InlineKeyboardButton('🤑 Buy Premium', url=f"https://t.me/{temp.U_NAME}?start=premium")
+    #    ],[
+    #        InlineKeyboardButton('🤑 Buy Premium', url=f"https://t.me/{temp.U_NAME}?start=premium")
             ]]
         reply_markup=InlineKeyboardMarkup(btn)
         if int(total) != 0:
@@ -143,14 +143,14 @@ async def next_page(bot, query):
         ]
             for file in files
         ]
-    if settings['shortlink'] and not await is_premium(query.from_user.id, bot):
-        btn.insert(0,
-            [InlineKeyboardButton("♻️ sᴇɴᴅ ᴀʟʟ ♻️", url=await get_shortlink(settings['url'], settings['api'], f'https://t.me/{temp.U_NAME}?start=all_{query.message.chat.id}_{key}'))]
-        )
-    else:
-        btn.insert(0,
-            [InlineKeyboardButton("♻️ sᴇɴᴅ ᴀʟʟ", callback_data=f"send_all#{key}#{req}")]
-        )
+#    if settings['shortlink'] and not await is_premium(query.from_user.id, bot):
+#        btn.insert(0,
+#            [InlineKeyboardButton("♻️ sᴇɴᴅ ᴀʟʟ ♻️", url=await get_shortlink(settings['url'], settings['api'], f'https://t.me/{temp.U_NAME}?start=all_{query.message.chat.id}_{key}'))]
+#        )
+#    else:
+#        btn.insert(0,
+#            [InlineKeyboardButton("♻️ sᴇɴᴅ ᴀʟʟ", callback_data=f"send_all#{key}#{req}")]
+#        )
 
     if 0 < offset <= MAX_BTN:
         off_set = 0
@@ -176,9 +176,9 @@ async def next_page(bot, query):
                 InlineKeyboardButton("ɴᴇxᴛ »", callback_data=f"next_{req}_{key}_{n_offset}")
             ]
         )
-    btn.append(
-        [InlineKeyboardButton('🤑 Buy Premium', url=f"https://t.me/{temp.U_NAME}?start=premium")]
-    )
+#    btn.append(
+#        [InlineKeyboardButton('🤑 Buy Premium', url=f"https://t.me/{temp.U_NAME}?start=premium")]
+#    )
     await query.message.edit_text(cap + files_link + del_msg, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=True, parse_mode=enums.ParseMode.HTML)
 
 
@@ -849,30 +849,30 @@ async def auto_filter(client, msg, s, spoll=False):
             for file in files
         ]   
     if offset != "":
-        if settings['shortlink'] and not await is_premium(message.from_user.id, client):
-            btn.insert(0,
-                [InlineKeyboardButton("♻️ sᴇɴᴅ ᴀʟʟ ♻️", url=await get_shortlink(settings['url'], settings['api'], f'https://t.me/{temp.U_NAME}?start=all_{message.chat.id}_{key}'))]
-            )
-        else:
-            btn.insert(1,
-                [InlineKeyboardButton("♻️ sᴇɴᴅ ᴀʟʟ", callback_data=f"send_all#{key}#{req}")]
-            )
+    #    if settings['shortlink'] and not await is_premium(message.from_user.id, client):
+    #        btn.insert(0,
+    #            [InlineKeyboardButton("♻️ sᴇɴᴅ ᴀʟʟ ♻️", url=await get_shortlink(settings['url'], settings['api'], f'https://t.me/{temp.U_NAME}?start=all_{message.chat.id}_{key}'))]
+    #        )
+    #    else:
+    #        btn.insert(1,
+    #            [InlineKeyboardButton("♻️ sᴇɴᴅ ᴀʟʟ", callback_data=f"send_all#{key}#{req}")]
+    #        )
         btn.append(
             [InlineKeyboardButton(text=f"1/{math.ceil(int(total_results) / MAX_BTN)}", callback_data="buttons"),
              InlineKeyboardButton(text="ɴᴇxᴛ »", callback_data=f"next_{req}_{key}_{offset}")]
         )
-    else:
-        if settings['shortlink'] and not await is_premium(message.from_user.id, client):
-            btn.insert(0,
-                [InlineKeyboardButton("♻️ sᴇɴᴅ ᴀʟʟ ♻️", url=await get_shortlink(settings['url'], settings['api'], f'https://t.me/{temp.U_NAME}?start=all_{message.chat.id}_{key}'))]
-            )
-        else:
-            btn.insert(0,
-                [InlineKeyboardButton("♻️ sᴇɴᴅ ᴀʟʟ ♻️", callback_data=f"send_all#{key}#{req}")]
-            )
-    btn.append(
-        [InlineKeyboardButton('🤑 Buy Premium', url=f"https://t.me/{temp.U_NAME}?start=premium")]
-    )
+ #   else:
+ #       if settings['shortlink'] and not await is_premium(message.from_user.id, client):
+ #           btn.insert(0,
+ #               [InlineKeyboardButton("♻️ sᴇɴᴅ ᴀʟʟ ♻️", url=await get_shortlink(settings['url'], settings['api'], f'https://t.me/{temp.U_NAME}?start=all_{message.chat.id}_{key}'))]
+ #           )
+ #       else:
+ #           btn.insert(0,
+ #               [InlineKeyboardButton("♻️ sᴇɴᴅ ᴀʟʟ ♻️", callback_data=f"send_all#{key}#{req}")]
+ #          )
+ #   btn.append(
+ #       [InlineKeyboardButton('🤑 Buy Premium', url=f"https://t.me/{temp.U_NAME}?start=premium")]
+ #   )
     imdb = await get_poster(search, file=(files[0])['file_name']) if settings["imdb"] else None
     TEMPLATE = settings['template']
     if imdb:
