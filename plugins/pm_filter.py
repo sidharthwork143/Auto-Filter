@@ -435,7 +435,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InputMediaPhoto(random.choice(PICS), caption=script.PLAN_TXT),
             reply_markup=reply_markup
                 
-        )
+        (
 
     elif query.data == "user_command":
         buttons = [[
