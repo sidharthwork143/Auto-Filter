@@ -56,7 +56,7 @@ async def start(client, message):
         buttons =[[
                         InlineKeyboardButton('⛩️ Bot Update Channel', url=f'https://telegram.me/filmy_men')
                     ],[
-                        InlineKeyboardButton('🌿 Premium', callback_data='plan'),
+                        InlineKeyboardButton('🌿 Premium', callback_data='plans'),
                         InlineKeyboardButton('🎏 About Me', callback_data='about')                       
                     ],[
                         InlineKeyboardButton('🆘 Support', callback_data='support'),
