@@ -432,7 +432,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[InlineKeyboardButton('« ʙᴀᴄᴋ', callback_data='start')]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.edit_message_media(
-            InputMediaPhoto(random.choice(PICS), caption=script.PLAN_TXT),Add commentMore actions
+            InputMediaPhoto(random.choice(PICS), caption=script.PLAN_TXT),
             reply_markup=reply_markup
                 
         )
