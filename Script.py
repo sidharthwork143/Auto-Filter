@@ -76,6 +76,22 @@ I can't find the <b>{}</b> in my database! 🥲
 
     WELCOME_TEXT = """👋 Hello {mention}, Welcome to {title} group! 💞"""
 
+    PLANS_TXT = """Activate any premium plan to get exclusive features.
+
+You can activate any premium plan and then you can get exclusive features.
+
+- INR {} for pre day -
+
+Basic premium features:
+Ad free experience
+Online watch and fast download
+No need joind channels
+No need verify
+No shortlink
+Admins support
+And more...
+
+Support: {}"""
     HELP_TXT = """👋 Hello {},
     
 I can filter movie and series you want
