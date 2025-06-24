@@ -427,23 +427,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup
                 
         )   
- 
-     elif query.data == "plans":
-        buttons = [[InlineKeyboardButton('« ʙᴀᴄᴋ', callback_data='start')]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.edit_message_media(
-            InputMediaPhoto(random.choice(PICS), caption=script.PLAN_TXT),
-            reply_markup=reply_markup
-                
-        (
 
-    elif query.data == "user_command":
+    elif query.data == "plans":
         buttons = [[
             InlineKeyboardButton('« ʙᴀᴄᴋ', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.edit_message_media(
-            InputMediaPhoto(random.choice(PICS), caption=script.USER_COMMAND_TXT),
+            InputMediaPhoto(random.choice(PICS), caption=script.PLANS_TXT),
             reply_markup=reply_markup
         )
         
