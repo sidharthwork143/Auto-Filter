@@ -426,7 +426,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InputMediaPhoto(random.choice(PICS), caption=script.DISCLAIMER_TXT),
             reply_markup=reply_markup
                 
-        )    
+        )   
+ 
      elif query.data == "plans":
         buttons = [[InlineKeyboardButton('« ʙᴀᴄᴋ', callback_data='start')]]
         reply_markup = InlineKeyboardMarkup(buttons)
