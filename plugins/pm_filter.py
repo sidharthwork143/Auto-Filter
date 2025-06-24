@@ -130,7 +130,7 @@ async def next_page(bot, query):
         return
     temp.FILES[key] = files
     settings = await get_settings(query.message.chat.id)
-    del_msg = f"\n\n<b>⚠️ ᴛʜɪs ᴍᴇssᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏ ᴅᴇʟᴇᴛᴇ ᴀꜰᴛᴇʀ <code>{get_readable_time(DELETE_TIME)}</code> ᴛᴏ ᴀᴠᴏɪᴅ ᴄᴏᴘʏʀɪɢʜᴛ ɪssᴜᴇs</b>" if settings["auto_delete"] else ''
+    del_msg = f"\n\n<b>⚠️ This Message Will Be Gone After <code>{get_readable_time(DELETE_TIME)}</code></b>" if settings["auto_delete"] else ''
     files_link = ''
 
     if settings['links']:
@@ -139,7 +139,7 @@ async def next_page(bot, query):
             files_link += f"""<b>\n\n{file_num}. <a href=https://t.me/{temp.U_NAME}?start=file_{query.message.chat.id}_{file['_id']}>[{get_size(file['file_size'])}] {file['file_name']}</a></b>"""
     else:
         btn = [[
-            InlineKeyboardButton(text=f"{get_size(file['file_size'])} - {file['file_name']}", callback_data=f"file#{file['_id']}")
+            InlineKeyboardButton(text=f"🪐 {get_size(file['file_size'])} | {file['file_name']}", callback_data=f"file#{file['_id']}")
         ]
             for file in files
         ]
@@ -844,7 +844,7 @@ async def auto_filter(client, msg, s, spoll=False):
             files_link += f"""<b>\n\n{file_num}. <a href=https://t.me/{temp.U_NAME}?start=file_{message.chat.id}_{file['_id']}>[{get_size(file['file_size'])}] {file['file_name']}</a></b>"""
     else:
         btn = [[
-            InlineKeyboardButton(text=f"{get_size(file['file_size'])} - {file['file_name']}", callback_data=f'file#{file["_id"]}')
+            InlineKeyboardButton(text=f"🪐 {get_size(file['file_size'])} | {file['file_name']}", callback_data=f'file#{file["_id"]}')
         ]
             for file in files
         ]   
