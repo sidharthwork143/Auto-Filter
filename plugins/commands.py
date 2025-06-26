@@ -164,12 +164,7 @@ async def start(client, message):
                     InlineKeyboardButton('⁉️ ᴄʟᴏsᴇ ⁉️', callback_data='close_data')
                 ]]
             else:
-                btn = [[
-                    InlineKeyboardButton('⚡️ ᴜᴘᴅᴀᴛᴇs', url=UPDATES_LINK),
-                    InlineKeyboardButton('💡 ꜱᴜᴘᴘᴏʀᴛ', url=SUPPORT_LINK)
-                ],[
-                    InlineKeyboardButton('⁉️ ᴄʟᴏsᴇ ⁉️', callback_data='close_data')
-                ]]
+                btn = [[InlineKeyboardButton("🚩 Close 🚩", callback_data="close_data")]]
 
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
