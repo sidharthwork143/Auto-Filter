@@ -16,6 +16,21 @@ bro. i can provide kind of content to my members without any cost. just send me 
 
 🌿 ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href=https://t.me/GojoXSandman_Bot>Satoru aka Sandman</a>"""
 
+    PLANSS_TXT = """Activate any premium plan to get exclusive features.
+
+You can activate any premium plan and then you can get exclusive features.
+
+Basic premium features:
+Ad free experience
+Online watch and fast downloadAdd commentMore actions
+No need joind channels
+No need verify
+No shortlink
+Admins support
+And more...
+
+Support: @IAm_Sandman"""
+
     SUPPORT_TXT = """
 <b>If your facing any problem with our bot and need help, So please contact for our Support
 
