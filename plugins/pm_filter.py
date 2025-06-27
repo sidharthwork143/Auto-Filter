@@ -332,7 +332,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
                         InlineKeyboardButton('⛩️ Bot Update Channel', url=f'https://telegram.me/filmy_men')
                     ],[
-                        InlineKeyboardButton('🌿 Premium', callback_data='plans'),
+                        InlineKeyboardButton('🎫 Premium', callback_data='planss'),
                         InlineKeyboardButton('🎏 About Me', callback_data='about')                       
                     ],[
                         InlineKeyboardButton('🚨 Support', callback_data='support'),
@@ -459,7 +459,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InputMediaPhoto(random.choice(PICS), caption=script.SOURCE_TXT),
             reply_markup=reply_markup
         )
-  
+
+     elif query.data == "planss":
+        buttons = [[
+            InlineKeyboardButton('≼ ʙᴀᴄᴋ', callback_data='start')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.edit_message_media(
+            InputMediaPhoto(random.choice(PICS), caption=script.PLANSS_TXT),
+            reply_markup=reply_markup
+        )
+
     elif query.data.startswith("bool_setgs"):
         ident, set_type, status, grp_id = query.data.split("#")
         userid = query.from_user.id if query.from_user else None
