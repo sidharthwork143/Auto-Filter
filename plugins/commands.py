@@ -56,10 +56,10 @@ async def start(client, message):
         buttons =[[
                         InlineKeyboardButton('⛩️ Bot Update Channel', url=f'https://telegram.me/filmy_men')
                     ],[
-                        InlineKeyboardButton('🌿 Premium', callback_data='plans'),
+                        InlineKeyboardButton('🎫 Premium', callback_data='planss'),
                         InlineKeyboardButton('🎏 About Me', callback_data='about')                       
                     ],[
-                        InlineKeyboardButton('🆘 Support', callback_data='support'),
+                        InlineKeyboardButton('🚨 Support', callback_data='support'),
                         InlineKeyboardButton('⚠️ Disclaimer ', callback_data='disclaimer')
                         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
